@@ -26,12 +26,14 @@ def flatten_object(argu):
             for key in xkey:
                 #new print statement
                 #as requested the . is seperating characters
-                flatten(xkey[key], value + key + '.')
+                flatten(xkey[key],  value +  key + '.' )
+                
             #if the object is already a list , it will iterate through value and reprint it a key and vlaye seperated by .
         elif type(xkey) is list:
             i = 0
             for key in xkey:
-                flatten(key, value + str(i) + '.')
+                flatten( key,  value + str(i) +  '.')
+                
                 i + 1
         else:
             result[value[:-1]] = xkey
@@ -42,7 +44,7 @@ def flatten_object(argu):
 flatten_json=(flatten_object(data))
 
 #print for function testing.
-#print(flatten_json)
+print(flatten_json)
 
 # will use dump to write back to new JSON file
 
@@ -50,7 +52,8 @@ flatten_json=(flatten_object(data))
 
 with open('flatten_json_code.json', 'w') as j:
     #json dump , added the data you want to write to file , e.g. write flatten_json to j file
-    json.dump(flatten_json,j)
+    #need to add indent to get correct print 
+    json.dump(flatten_json,j,indent=1)
 
 
 
