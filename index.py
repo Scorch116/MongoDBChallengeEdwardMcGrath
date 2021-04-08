@@ -38,6 +38,19 @@ def flatten_object(argu):
     flatten(argu)
     return result
 
-print(flatten_object(data))
+#print statment with JSON object passed in as parameter
+flatten_json=(flatten_object(data))
+
+#print for function testing.
+#print(flatten_json)
+
+# will use dump to write back to new JSON file
+
+#open new file and 'write' to file , will declare as j 
+
+with open('flatten_json_code.json', 'w') as j:
+    #json dump , added the data you want to write to file , e.g. write flatten_json to j file
+    json.dump(flatten_json,j)
+
 
 
